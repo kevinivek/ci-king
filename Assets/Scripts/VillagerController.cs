@@ -3,8 +3,9 @@ using System.Collections;
 
 public class VillagerController : MonoBehaviour {
 
-	public int joy = 50;
-	public int fear = 10;
+	public int[] stats = {0, 0, 0, 0, 0, 0};
+	public string[] statNames = {"Fear", "Depression", "Joy", "Anger", "Apathy", "Hunger"}; 
+
 
 	// Use this for initialization
 	void Start () {
