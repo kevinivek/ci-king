@@ -17,4 +17,11 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void OnControllerColliderHit(ControllerColliderHit hit) {
+		if (hit.gameObject.CompareTag (Tags.villager)) {
+			VillagerController villCont = hit.gameObject.GetComponent<VillagerController>();
+			villCont.stats[ VillagerController.HUNGER ] += 10;
+		}
+	}
 }
