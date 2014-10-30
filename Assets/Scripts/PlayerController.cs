@@ -5,16 +5,38 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject villager;
 	public GameObject VillagerHUDPrefab;
-	//private GameObject villagerHUD;
+	private GameObject villagerHUD;
 
 	// Use this for initialization
 	void Start () {
-		GameObject villagerHUD = Instantiate (VillagerHUDPrefab) as GameObject;
+		villagerHUD = Instantiate (VillagerHUDPrefab) as GameObject;
 		villagerHUD.gameObject.GetComponent<HUDController> ().villager = villager;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		Vector3 fwd = transform.TransformDirection (Vector3.forward);
+		RaycastHit hit;
+
+		GameObject cam = GameObject.FindGameObjectWithTag ("MainCamera");
+
+		Debug.DrawRay (cam.transform.position, fwd, Color.red);
+
+		HUDController HUDCont = villagerHUD.gameObject.GetComponent<HUDController>();
+
+		if(Physics.Raycast(cam.transform.position, fwd, out hit)) {
+			if(hit.collider.gameObject.CompareTag(Tags.villager)) {
+				if(!HUDCont.activeHUD) {
+					HUDCont.setPosition();
+				}
+			}
+			else {
+				if(HUDCont.activeHUD) {
+					HUDCont.resetPosition();
+				}
+			}
+		}
 	
 	}
 
