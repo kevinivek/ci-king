@@ -40,9 +40,9 @@ public class VillagerManager : MonoBehaviour {
 			villageStats[i] /= villagerList.Count;
 		}
 
-		for(int i = 0; i < villageStats.Length; i++){
-			Debug.Log(villagerList[0].GetComponent<VillagerController>().statNames[i] + "  " + villageStats[i]);
-		}
+		//for(int i = 0; i < villageStats.Length; i++){
+		//	Debug.Log(villagerList[0].GetComponent<VillagerController>().statNames[i] + "  " + villageStats[i]);
+		//}
 
 	}
 	

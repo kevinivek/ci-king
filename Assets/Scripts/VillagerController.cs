@@ -22,9 +22,6 @@ public class VillagerController : MonoBehaviour {
 		for (int i = 0; i < stats.Length; i++) {
 			stats[i] = Random.Range(40,60);
 		}
-		
-		Debug.Log ("Village Controller: " + stats[0]);
-
 
 	}
 
