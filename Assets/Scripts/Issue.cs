@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Issue : MonoBehaviour {
+public class Issue{
 
 	public int[] statsModifier = {0, 0, 0, 0, 0, 0}; 
 	public string[] statNames = {"Fear", "Depression", "Joy", "Anger", "Apathy", "Hunger"}; 
@@ -22,15 +22,7 @@ public class Issue : MonoBehaviour {
 		options = new IssueOption[num];
 	}
 
-	// Use this for initialization
-	void Start () {
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 	
 	public String getTitle(){
 		return this.title;
