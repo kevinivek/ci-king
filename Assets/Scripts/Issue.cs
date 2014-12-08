@@ -14,10 +14,12 @@ public class Issue : MonoBehaviour {
 	
 	private String title = "";
 	private String description = "";
-	private IssueOption
+	private int numOptions = 0; //the number of options in this issue, starts with zero
+	private IssueOption[] options;
 	
-	public Issue(String title){
+	public Issue(String title, int num){
 		this.title = title;
+		options = new IssueOption[num];
 	}
 
 	// Use this for initialization
@@ -36,6 +38,15 @@ public class Issue : MonoBehaviour {
 	
 	public String getDescription(){
 		return this.description;
+	}
+	public void addOption(String oName, int stats[]){
+		options[numOptions] = new Issue(oName, numOptions + 1, stats);
+		numOptions++;
+	}
+	
+	public option getOption(int oNum)
+	{
+		return options[oNum];
 	}
 	
 	
