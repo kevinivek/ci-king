@@ -7,6 +7,7 @@ public class VillagerManager : MonoBehaviour {
 	
 	private List<GameObject> villagerList = new List<GameObject>();
 	public int[] villageStats = {0, 0, 0, 0, 0, 0};
+	public GameObject villagerQueue;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,12 @@ public class VillagerManager : MonoBehaviour {
 			villagerList[i].GetComponent<VillagerController>().ManualStart();
 		}
 		UpdateStats();
-		
+
+		//Add villagers to queue
+		foreach(GameObject villager in villagerList) {
+			villagerQueue.GetComponent<VillagerQueue>().pushVillager(villager);
+		}
+
 	}
 
 	//Updates the stats for the whole village.  Averages the stats for the whole village

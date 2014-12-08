@@ -17,9 +17,26 @@ public class VillagerQueue : MonoBehaviour {
 			markers[id] = marker;
 		}
 
-		foreach(GameObject marker in markers) {
-			Debug.Log("marker: " + marker.GetComponent<MarkerController>().id);
+	}
+
+	public void pushVillager(GameObject villager) {
+		villagerInQueue.Add(villager);
+		updateQueue();
+	}
+
+	public void popVillager() {
+		villagerInQueue.RemoveAt(0);
+		updateQueue();
+	}
+
+	private void updateQueue() {
+		for(int i=0; i<villagerInQueue.Count; i++) {
+			moveVillagerToMarker(villagerInQueue[i], markers[i]);
 		}
+	}
+
+	private void moveVillagerToMarker(GameObject villager, GameObject marker) {
+		villager.GetComponent<VillagerController>().moveToPoint(marker.transform.position);
 	}
 
 	// Update is called once per frame
