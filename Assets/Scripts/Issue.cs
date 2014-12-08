@@ -12,31 +12,31 @@ public class Issue{
 	public const int APATHY = 4;
 	public const int HUNGER = 5;
 	
-	private String title = "";
-	private String description = "";
+	private string title = "";
+	private string description = "";
 	private int numOptions = 0; //the number of options in this issue, starts with zero
 	private IssueOption[] options;
 	
-	public Issue(String title, int num){
+	public Issue(string title, int num){
 		this.title = title;
 		options = new IssueOption[num];
 	}
 
 	
 	
-	public String getTitle(){
+	public string getTitle(){
 		return this.title;
 	}
 	
-	public String getDescription(){
+	public string getDescription(){
 		return this.description;
 	}
-	public void addOption(String oName, int stats[]){
-		options[numOptions] = new Issue(oName, numOptions + 1, stats);
+	public void addOption(string oName, int[] stats){
+		options[numOptions] = new IssueOption(oName, numOptions + 1, stats);
 		numOptions++;
 	}
 	
-	public option getOption(int oNum)
+	public IssueOption getOption(int oNum)
 	{
 		return options[oNum];
 	}

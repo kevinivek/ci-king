@@ -12,9 +12,9 @@ public class IssueOption{
 	public const int APATHY = 4;
 	public const int HUNGER = 5;
 	private int choice = -1; 		//choice number for given issue
-	private String description = "";	//description of choice
+	private string description = "";	//description of choice
 	
-	public IssueOption(String description, int choice, int stats[]){
+	public IssueOption(string description, int choice, int[] stats){
 		this.choice = choice;
 		this.description = description;
 		statsModifier = stats;
@@ -22,7 +22,7 @@ public class IssueOption{
 
 	
 	
-	public String getDescription(){
+	public string getDescription(){
 		return description;
 	}
 	
@@ -31,6 +31,6 @@ public class IssueOption{
 	}
 	
 	public int[] getStats(){
-		return statsModifier();
+		return statsModifier;
 	}
 }
