@@ -14,15 +14,17 @@ public class HUDController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-		VillagerController villCont = villager.gameObject.GetComponent<VillagerController>();
+		if (villager == null || !activeHUD) {
+			text.GetComponent<TextMesh>().text = "";
+		} else if(villager !=null && activeHUD) {
+			VillagerController villCont = villager.gameObject.GetComponent<VillagerController>();
 
-		text.GetComponent<TextMesh> ().text = "Villager\n----------------------\n";
+			text.GetComponent<TextMesh>().text = "Villager\n----------------------\n";
 
-		for (int i=0; i<villCont.stats.Length; i++) {
-			text.GetComponent<TextMesh>().text += villCont.statNames[i] + ": " + villCont.stats[i] + "\n";
+			for (int i=0; i<villCont.stats.Length; i++) {
+				text.GetComponent<TextMesh>().text += villCont.statNames[i] + ": " + villCont.stats[i] + "\n";
+			}
 		}
-
 	}
 
 	public void setPosition(){

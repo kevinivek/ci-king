@@ -28,11 +28,13 @@ public class PlayerController : MonoBehaviour {
 		if(Physics.Raycast(cam.transform.position, fwd, out hit)) {
 			if(hit.collider.gameObject.CompareTag(Tags.villager)) {
 				if(!HUDCont.activeHUD) {
+					HUDCont.villager = hit.collider.gameObject;
 					HUDCont.setPosition();
 				}
 			}
 			else {
 				if(HUDCont.activeHUD) {
+					HUDCont.villager = null;
 					HUDCont.resetPosition();
 				}
 			}
