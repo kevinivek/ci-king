@@ -22,7 +22,9 @@ public class Issue{
 		options = new IssueOption[num];
 	}
 
-	
+	public void setDescription(string description){
+		this.description = description;
+	}
 	
 	public string getTitle(){
 		return this.title;
