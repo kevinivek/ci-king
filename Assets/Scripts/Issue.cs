@@ -11,8 +11,10 @@ public class Issue : MonoBehaviour {
 	public const int ANGER = 3;
 	public const int APATHY = 4;
 	public const int HUNGER = 5;
+	
 	private String title = "";
 	private String description = "";
+	private IssueOption
 	
 	public Issue(String title){
 		this.title = title;
