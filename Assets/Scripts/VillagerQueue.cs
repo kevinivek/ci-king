@@ -32,10 +32,7 @@ public class VillagerQueue : MonoBehaviour {
 	}
 
 	private void updateQueue() {
-		Debug.Log("villagers in queue: #" + villagerInQueue.Count);
 		for(int i=0; i<villagerInQueue.Count; i++) {
-			Debug.Log("villager [" +i+ "]: " + villagerInQueue[i]);
-			Debug.Log ("markers [" +i+ "]: " + markers[i]);
 			moveVillagerToMarker(villagerInQueue[i], markers[i]);
 		}
 	}
