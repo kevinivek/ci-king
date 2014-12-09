@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 public class VillagerQueue : MonoBehaviour {
 
-	private GameObject[] markers;
-	private List<GameObject> villagerInQueue = new List<GameObject>();
+	public GameObject[] markers;
+	public List<GameObject> villagerInQueue = new List<GameObject>();
 
 	// Use this for initialization
-	void Start () {
+	public void ManualStart () {
 		GameObject[] tempMarkers = GameObject.FindGameObjectsWithTag(Tags.villagerMarker);
 		int numMarker = tempMarkers.Length;
 		markers = new GameObject[numMarker];
@@ -18,6 +18,8 @@ public class VillagerQueue : MonoBehaviour {
 		}
 
 	}
+
+
 
 	public void pushVillager(GameObject villager) {
 		villagerInQueue.Add(villager);
@@ -30,7 +32,10 @@ public class VillagerQueue : MonoBehaviour {
 	}
 
 	private void updateQueue() {
+		Debug.Log("villagers in queue: #" + villagerInQueue.Count);
 		for(int i=0; i<villagerInQueue.Count; i++) {
+			Debug.Log("villager [" +i+ "]: " + villagerInQueue[i]);
+			Debug.Log ("markers [" +i+ "]: " + markers[i]);
 			moveVillagerToMarker(villagerInQueue[i], markers[i]);
 		}
 	}

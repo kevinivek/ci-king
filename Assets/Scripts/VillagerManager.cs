@@ -5,22 +5,32 @@ using System.Collections.Generic;
 
 public class VillagerManager : MonoBehaviour {
 	
-	private List<GameObject> villagerList = new List<GameObject>();
+	public List<GameObject> villagerList = new List<GameObject>();
 	public int[] villageStats = {0, 0, 0, 0, 0, 0};
 	public GameObject villagerQueue;
 
 	// Use this for initialization
 	void Start () {
 
+		//--Initializations
+
+		//------villagers
 		GameObject[] villagers = GameObject.FindGameObjectsWithTag(Tags.villager);
-		foreach(GameObject villager in villagers ){
+		foreach(GameObject villager in villagers){
+			villager.GetComponent<VillagerController>().ManualStart();
+		}
+		//------VillagerQueue
+		villagerQueue.GetComponent<VillagerQueue>().ManualStart();
+
+		//--
+
+
+		//--get all villagers
+		foreach(GameObject villager in villagers){
 			villagerList.Add(villager);
 		}
-
-		for(int i = 0; i < villagerList.Count; i++){
-			villagerList[i].GetComponent<VillagerController>().ManualStart();
-		}
 		UpdateStats();
+
 
 		//Add villagers to queue
 		foreach(GameObject villager in villagerList) {
