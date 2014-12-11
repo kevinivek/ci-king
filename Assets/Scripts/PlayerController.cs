@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 	void OnControllerColliderHit(ControllerColliderHit hit) {
 		if (hit.gameObject.CompareTag (Tags.villager)) {
 			VillagerController villCont = hit.gameObject.GetComponent<VillagerController>();
-			villCont.stats[ VillagerController.HUNGER ] += 10;
+			villCont.stats[ VillagerStats.HUNGER ] += 10;
 		}
 	}
 }

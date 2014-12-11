@@ -22,7 +22,7 @@ public class HUDController : MonoBehaviour {
 			text.GetComponent<TextMesh>().text = "Villager\n----------------------\n";
 
 			for (int i=0; i<villCont.stats.Length; i++) {
-				text.GetComponent<TextMesh>().text += villCont.statNames[i] + ": " + villCont.stats[i] + "\n";
+				text.GetComponent<TextMesh>().text += VillagerStats.statNames[i] + ": " + villCont.stats[i] + "\n";
 			}
 		}
 	}
