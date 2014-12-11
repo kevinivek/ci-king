@@ -4,13 +4,6 @@ using System.Collections;
 public class Issue{
 
 	public int[] statsModifier = {0, 0, 0, 0, 0, 0}; 
-	public string[] statNames = {"Fear", "Depression", "Joy", "Anger", "Apathy", "Hunger"}; 
-	public const int FEAR = 0;
-	public const int DEPRESSION = 1;
-	public const int JOY = 2;
-	public const int ANGER = 3;
-	public const int APATHY = 4;
-	public const int HUNGER = 5;
 	
 	private string title = "";
 	private string description = "";
