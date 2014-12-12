@@ -46,4 +46,8 @@ public class IssueManager : MonoBehaviour {
 		
 	}
 
+	public Issue getRandomIssue() {
+		return issues[Random.Range(0, issues.Count-1)];
+	}
+
 }

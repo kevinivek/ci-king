@@ -18,6 +18,8 @@ public class IssuePresenter : MonoBehaviour {
 	public VillagerController curVillager;
 	public Issue curIssue;
 
+	public bool presentingIssue = true;
+
 	// Use this for initialization
 	public void Init() {
 		HUDStats = Instantiate (HUDPrefab) as GameObject;
@@ -51,12 +53,14 @@ public class IssuePresenter : MonoBehaviour {
 		
 	}
 
-	public void presentIssue() {
+	public void presentIssue(Issue issue) {
 
+		presentingIssue = true;
+
+		curIssue = issue;
 		curVillager = villagerQueue.getFirstVillager().GetComponent<VillagerController>();
 		updateHUDS();
-
-		curIssue = issueManager.issues[0];
+		
 		HUDI.resetText ();
 		HUDI.addLine("Issue");
 		HUDI.addLine("----------");
@@ -66,7 +70,6 @@ public class IssuePresenter : MonoBehaviour {
 		for(int i=0; i<curIssue.numOptions; i++) {
 			HUDI.addLine("["+i+"] " + curIssue.options[i].description);
 		}
-
 	}
 
 	public void updateHUDS() {
@@ -78,14 +81,14 @@ public class IssuePresenter : MonoBehaviour {
 		}
 	}
 
-
-	void Update() {
+	public void getOptionInput() {
 		if (Input.GetButtonDown("Option1")) {
 			if (curIssue.options[0].all)
 				villagerManager.updateVillagersStats(curIssue.options[0].statsModifier);
 			else
 				curVillager.updateStats(curIssue.options[0].statsModifier);
 			updateHUDS();
+			presentingIssue = false;
 		}
 		if (Input.GetButtonDown("Option2")) {
 			if (curIssue.options[1].all)
@@ -93,6 +96,7 @@ public class IssuePresenter : MonoBehaviour {
 			else
 				curVillager.updateStats(curIssue.options[1].statsModifier);
 			updateHUDS();
+			presentingIssue = false;
 		}
 		if (Input.GetButtonDown("Option3")) {
 			if (curIssue.options[2].all)
@@ -100,6 +104,13 @@ public class IssuePresenter : MonoBehaviour {
 			else
 				curVillager.updateStats(curIssue.options[2].statsModifier);
 			updateHUDS();
+			presentingIssue = false;
+		}
+	}
+
+	void Update() {
+		if (presentingIssue) { 
+			getOptionInput();
 		}
 	}
 }
