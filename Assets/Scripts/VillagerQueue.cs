@@ -39,6 +39,10 @@ public class VillagerQueue : MonoBehaviour {
 		villager.GetComponent<VillagerController>().moveToPoint(marker.transform.position);
 	}
 
+	public GameObject getFirstVillager() {
+		return villagerInQueue[0];
+	}
+
 	// Update is called once per frame
 	void Update () {
 	
