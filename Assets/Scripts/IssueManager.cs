@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class IssueController : MonoBehaviour {
+public class IssueManager : MonoBehaviour {
 	
 	private List<Issue> issues = new List<Issue>();
 
