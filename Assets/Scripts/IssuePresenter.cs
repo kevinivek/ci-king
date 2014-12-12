@@ -4,6 +4,7 @@ using System.Collections;
 public class IssuePresenter : MonoBehaviour {
 
 	public GameObject HUDPrefab;
+	public GameObject HeadRollerPrefab;
 
 	private GameObject HUDStats;
 	private GameObject HUDIssue;
@@ -104,6 +105,8 @@ public class IssuePresenter : MonoBehaviour {
 			else {
 				curVillager.updateStats(curIssue.options[2].statsModifier);
 				//villagerManager.removeVillager(curVillager.gameObject);
+				GameObject headRoll = Instantiate (HeadRollerPrefab) as GameObject;
+				headRoll.transform.position = villagerQueue.markers[0].transform.position;
 			}
 			updateHUDS();
 			presentingIssue = false;
