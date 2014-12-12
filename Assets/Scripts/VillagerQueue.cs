@@ -43,8 +43,10 @@ public class VillagerQueue : MonoBehaviour {
 		return villagerInQueue[0];
 	}
 
-	// Update is called once per frame
-	void Update () {
-	
+	public void nextVillager() {
+		GameObject villager = getFirstVillager();
+		popVillager();
+		pushVillager(villager);
 	}
+
 }

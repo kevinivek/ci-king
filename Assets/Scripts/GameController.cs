@@ -36,7 +36,11 @@ public class GameController : MonoBehaviour {
 				break;
 			case PRESENTING_ISSUE:
 				if(!issuePresenter.presentingIssue)
-					state = PRESENT_ISSUE;
+					state = NEXT_VILLAGER;
+				break;
+			case NEXT_VILLAGER:
+				villagerQueue.nextVillager();
+				state = PRESENT_ISSUE;
 				break;
 		}
 	}
