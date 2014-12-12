@@ -16,16 +16,16 @@ public class IssuePresenter : MonoBehaviour {
 		HUDController HUDS = HUDStats.GetComponent<HUDController> ();
 		HUDS.Init();
 		HUDS.setPosition(new Vector3(0, 4, -1.5f));
-		HUDS.HUDtext.fontSize = 12;
-		HUDS.setText("Testing...1..2..3");
+		HUDS.HUDtext.fontSize = 24;
+		HUDS.HUDtext.characterSize = 0.5f;
 		HUDS.resize(new Vector3 (0.5f, 1, 1));
 		
 		HUDIssue = Instantiate (HUDPrefab) as GameObject;
 		HUDController HUDI = HUDIssue.GetComponent<HUDController> ();
 		HUDI.Init();
 		HUDI.setPosition(new Vector3(0, 4, -1.5f));
-		HUDI.HUDtext.fontSize = 12;
-		HUDI.setText("Testing...1..2..3");
+		HUDS.HUDtext.fontSize = 24;
+		HUDS.HUDtext.characterSize = 0.5f;
 		HUDI.resize(new Vector3 (1, 0.5f, 1));
 		
 		Vector3 markerPos = villagerQueue.markers[0].transform.position;
