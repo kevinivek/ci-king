@@ -9,7 +9,7 @@ public class IssueManager : MonoBehaviour {
 	// Use this for initialization
 	public void Init () {
 		issues.Add(new Issue ("Farm Disaster", 3));
-		issues[0].setDescription("Half my farm burned down in a fire, I'm not going to be able to make any money this season, let alone feed my family.");
+		issues[0].setDescription(" \"Half my farm burned down in a fire,\n I'm not going to be able to make\n any money this season, let alone\n feed my family.\"");
 		issues[0].addOption("Give him some grain", new int[] {0, -10, 10, 0, 0, -10}, false); //subtract from food stores
 		issues[0].addOption("Diplomatically Refuse to do anything", new int[] {0, -10, 10, 0, 0, -10}, false);
 		issues[0].addOption("Have him beheaded for his insolence", new int[] {10, 5, 0, 5, 0, 0}, true); //stats will need to affect all other villagers
