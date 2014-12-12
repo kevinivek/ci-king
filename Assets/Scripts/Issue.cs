@@ -26,8 +26,8 @@ public class Issue{
 	public string getDescription(){
 		return this.description;
 	}
-	public void addOption(string oName, int[] stats){
-		options[numOptions] = new IssueOption(oName, numOptions + 1, stats);
+	public void addOption(string oName, int[] stats, bool all){
+		options[numOptions] = new IssueOption(oName, numOptions + 1, stats, all);
 		numOptions++;
 	}
 	

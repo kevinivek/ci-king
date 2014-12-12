@@ -7,9 +7,9 @@ public class IssueOption{
 
 	private int choice = -1; 		//choice number for given issue
 	private string description = "";	//description of choice
-	private boolean all;
+	private bool all;
 	
-	public IssueOption(string description, int choice, int[] stats, boolean all){
+	public IssueOption(string description, int choice, int[] stats, bool all){
 		this.choice = choice;
 		this.description = description;
 		statsModifier = stats;
@@ -24,7 +24,7 @@ public class IssueOption{
 		return choice;
 	}
 	
-	public boolean getAll(){
+	public bool getAll(){
 		return this.all;
 	}
 	
