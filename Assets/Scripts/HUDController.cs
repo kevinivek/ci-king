@@ -3,13 +3,12 @@ using System.Collections;
 
 public class HUDController : MonoBehaviour {
 
-	public GameObject text;
-	public GameObject villager;
+	public TextMesh HUDtext;
 	public bool activeHUD = false;
 	public Vector3 storePosition = new Vector3(20,0,20);
 
 	// Use this for initialization
-	void Start () {
+	public void Init () {
 		resetPosition();
 	}
 	
@@ -18,11 +17,11 @@ public class HUDController : MonoBehaviour {
 	}
 
 	public void setText(string newText) {
-		text.GetComponent<TextMesh>().text = newText;
+		HUDtext.text = newText;
 	}
 
 	public void addLine(string line) {
-		text.GetComponent<TextMesh>().text += line;
+		HUDtext.text += line;
 	}
 
 	public void setPosition(Vector3 newPos) {
@@ -43,8 +42,8 @@ public class HUDController : MonoBehaviour {
 		Vector3 newScale = new Vector3( scale.x*modScale.x, scale.y*modScale.y, scale.z*modScale.z );
 		transform.localScale = newScale;
 
-		scale = text.transform.localScale;
-		newScale = new Vector3( scale.x*modScale.x, scale.y*modScale.y, scale.z*modScale.z );
-		text.transform.localScale = newScale;
+		scale = HUDtext.gameObject.transform.localScale;
+		newScale = new Vector3( scale.x/modScale.x, scale.y/modScale.y, scale.z/modScale.z );
+		HUDtext.gameObject.transform.localScale = newScale;
 	}
 }
