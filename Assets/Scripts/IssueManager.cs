@@ -38,10 +38,10 @@ public class IssueManager : MonoBehaviour {
 		issues[4].addOption ("Of Course! More Soldiers!", new int[] {0, 10, 0, 5, -5, 0}, true);
 		issues[4].addOption("Have him beheaded for his insolence", new int[] {10, 5, 0, 5, 0, 0}, true); //stats will need to affect all other villagers
 		
-		issues.Add (new Issue ("Lower Taxes", 3));
-		issues[5].setDescription ("The taxes are so high as to be crippling sire, will you please show some mercy?");
-		issues[5].addOption ("Lower the taxes", new int[] {0, -10, 10, 0, -10, 0}, false);
-		issues[5].addOption ("Raise the taxes", new int[] {0, 10, 0, 5, 10, 0}, false);
+		issues.Add (new Issue ("Build a School", 3));
+		issues[5].setDescription ("Could you build a school for our children to be educated in?  I think it woulld greatly benefit your realm.");
+		issues[5].addOption ("Sounds good to me", new int[] {0, -10, 10, 0, -15, 5}, true);  //should subtract a large amount of money
+		issues[5].addOption ("We can't afford that", new int[] {0, 10, -15, 0, 10, -5}, false);
 		issues[5].addOption("Have him beheaded for his insolence", new int[] {10, 5, 0, 5, 0, 0}, true); //stats will need to affect all other villagers
 		
 	}
