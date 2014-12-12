@@ -7,7 +7,7 @@ public class VillagerManager : MonoBehaviour {
 	
 	public List<GameObject> villagerList = new List<GameObject>();
 	public int[] villageStats = {0, 0, 0, 0, 0, 0};
-	public GameObject villagerQueue;
+	public VillagerQueue villagerQueue;
 
 	// Use this for initialization
 	public void Init () {
@@ -30,7 +30,7 @@ public class VillagerManager : MonoBehaviour {
 
 		//Add villagers to queue
 		foreach(GameObject villager in villagerList) {
-			villagerQueue.GetComponent<VillagerQueue>().pushVillager(villager);
+			villagerQueue.pushVillager(villager);
 		}
 
 	}
@@ -57,7 +57,17 @@ public class VillagerManager : MonoBehaviour {
 			villager.GetComponent<VillagerController>().updateStats(stats);
 		}
 	}
-	
+
+	public void removeVillager(GameObject villager) {
+		villagerList.Remove(villager);
+		villagerQueue.villagerInQueue.Remove(villager);
+	}
+
+	public void removeFirstVillager() {
+		villagerList.RemoveAt(0);
+		villagerQueue.villagerInQueue.RemoveAt(0);
+	}
+
 	// Update is called once per frame
 	void Update () {
 	

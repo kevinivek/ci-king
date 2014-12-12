@@ -101,8 +101,10 @@ public class IssuePresenter : MonoBehaviour {
 		if (Input.GetButtonDown("Option3")) {
 			if (curIssue.options[2].all)
 				villagerManager.updateVillagersStats(curIssue.options[2].statsModifier);
-			else
+			else {
 				curVillager.updateStats(curIssue.options[2].statsModifier);
+				//villagerManager.removeVillager(curVillager.gameObject);
+			}
 			updateHUDS();
 			presentingIssue = false;
 		}
