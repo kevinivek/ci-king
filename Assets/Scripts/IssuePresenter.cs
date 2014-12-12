@@ -57,11 +57,15 @@ public class IssuePresenter : MonoBehaviour {
 			HUDS.addLine(VillagerStats.statNames[i] + ": " + curVillager.stats[i]);
 		}
 
-
+		Issue curIssue = issueManager.issues[0];
 		HUDI.resetText ();
 		HUDI.addLine("Issue");
 		HUDI.addLine("----------");
-
+		HUDI.addLine(curIssue.title);
+		HUDI.addLine (curIssue.description);
+		for(int i=0; i<curIssue.numOptions; i++) {
+			HUDI.addLine("["+i+"] " + curIssue.options[i].description);
+		}
 
 	}
 }
