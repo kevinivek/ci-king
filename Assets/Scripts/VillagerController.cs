@@ -5,13 +5,14 @@ using System.Runtime;
 public class VillagerController : MonoBehaviour {
 
 	public int[] stats = {0, 0, 0, 0, 0, 0};
-	
-	// Use this for initialization
-	void Start () {
+	public Color color;
 
-	}
 
 	public void Init(){
+
+		color = new Color(Random.Range(0.0f, 0.5f), Random.Range(0.0f, 0.5f), Random.Range(0.0f, 0.5f), 1.0f);
+		renderer.material.SetColor("_Color", color);
+
 		for (int i = 0; i < stats.Length; i++) {
 			stats[i] = Random.Range(40,60);
 		}
