@@ -68,7 +68,7 @@ public class IssuePresenter : MonoBehaviour {
 		HUDI.addLine(curIssue.description);
 		HUDI.addLine("");
 		for(int i=0; i<curIssue.numOptions; i++) {
-			HUDI.addLine("["+i+"] " + curIssue.options[i].description);
+			HUDI.addLine("["+(i+1)+"] " + curIssue.options[i].description);
 		}
 	}
 
