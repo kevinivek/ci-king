@@ -8,12 +8,15 @@ public class IssuePresenter : MonoBehaviour {
 	private GameObject HUDStats;
 	private GameObject HUDIssue;
 
+	private HUDController HUDS;
+	private HUDController HUDI;
+
 	public VillagerQueue villagerQueue; 
 
 	// Use this for initialization
 	public void Init() {
 		HUDStats = Instantiate (HUDPrefab) as GameObject;
-		HUDController HUDS = HUDStats.GetComponent<HUDController> ();
+		HUDS = HUDStats.GetComponent<HUDController> ();
 		HUDS.Init();
 		HUDS.setPosition(new Vector3(0, 4, -1.5f));
 		HUDS.HUDtext.fontSize = 24;
@@ -21,7 +24,7 @@ public class IssuePresenter : MonoBehaviour {
 		HUDS.resize(new Vector3 (0.5f, 1, 1));
 		
 		HUDIssue = Instantiate (HUDPrefab) as GameObject;
-		HUDController HUDI = HUDIssue.GetComponent<HUDController> ();
+		HUDI = HUDIssue.GetComponent<HUDController> ();
 		HUDI.Init();
 		HUDI.setPosition(new Vector3(0, 4, -1.5f));
 		HUDS.HUDtext.fontSize = 24;
@@ -41,6 +44,13 @@ public class IssuePresenter : MonoBehaviour {
 		offset = new Vector3(0.0f, 0.0f, 0.0f);
 		HUDI.setPosition(newPos + offset);
 
+
+
+
+	}
+
+	public void presentIssue() {
+
 		VillagerController curVillager = villagerQueue.getFirstVillager().GetComponent<VillagerController>();
 		HUDS.resetText();
 		HUDS.addLine("Stats");
@@ -49,10 +59,5 @@ public class IssuePresenter : MonoBehaviour {
 		}
 
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }

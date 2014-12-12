@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour {
 		villagerQueue.GetComponent<VillagerQueue>().Init();
 		villagerManager.GetComponent<VillagerManager>().Init();
 		issuePresenter.GetComponent<IssuePresenter>().Init();
+
+		issuePresenter.GetComponent<IssuePresenter> ().presentIssue ();
 	}
 	
 	// Update is called once per frame
