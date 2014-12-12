@@ -15,31 +15,31 @@ public class IssueManager : MonoBehaviour {
 		issues[0].addOption("Have him beheaded for his insolence", new int[] {10, 5, 0, 5, 0, 0}, true); //stats will need to affect all other villagers
 
 		issues.Add (new Issue ("Missing Child", 3));
-		issues[1].setDescription ("My daughter went down to play in the river, and she never came back, we can't find her anywhere around town, will you help us?");
+		issues[1].setDescription (" \"My daughter went down to play in the\n river, and she never came back,\n we can't find her anywhere around town,\n will you help us?\"");
 		issues[1].addOption ("Send help right away", new int[] {-10, -10, 10, 0, 0, 0}, false);  //subtract money from the coffers
 		issues[1].addOption("Find the child, but force her into labor at the castle", new int[] {0, 10, -10, 10, 10, 0}, false);
-		issues[1].addOption("Have him beheaded for suggesting you stoop to helping him", new int[] {10, 5, 0, 5, 0, 0}, true); //stats will need to affect all other villagers
+		issues[1].addOption("Have him beheaded for suggesting you stoop to\n helping him", new int[] {10, 5, 0, 5, 0, 0}, true); //stats will need to affect all other villagers
 
 		issues.Add (new Issue ("Lower Taxes", 3));
-		issues[2].setDescription ("The taxes are so high as to be crippling sire, will you please show some mercy?");
+		issues[2].setDescription (" \"The taxes are so high as to be\n crippling sire, will you please\n show some mercy?\"");
 		issues[2].addOption ("Lower the taxes", new int[] {0, -10, 10, 0, -10, 0}, false);
 		issues[2].addOption ("Raise the taxes", new int[] {0, 10, 0, 5, 10, 0}, false);
 		issues[2].addOption("Have him beheaded for his insolence", new int[] {10, 5, 0, 5, 0, 0}, true); //stats will need to affect all other villagers
 		
 		issues.Add (new Issue ("That Weird Guy", 3));
-		issues[3].setDescription ("There is a man who moved into your village recently, and he is exceptionally strange.  Can you do something about him?");
+		issues[3].setDescription (" \"There is a man who moved into\n your village recently, and he\n is exceptionally strange.\n Can you do something about him?\"");
 		issues[3].addOption ("Show Acceptance of the man", new int[] {10, 0, 0, 10, 0, 0}, true); 
 		issues[3].addOption ("Ignore the villager", new int[] {0, 0, 0, 0, 10, 0}, true);
 		issues[3].addOption("Kill the new man", new int[] {-10, 0, 5, 5, -10, 0}, true); //stats will need to affect all other villagers
 		
 		issues.Add (new Issue ("Conscription", 3));
-		issues[4].setDescription ("Sire, I don't feel safe with all the dangers in this world, you should conscript all the young people to fight for our security");
+		issues[4].setDescription (" \"Sire, I don't feel safe with\n all the dangers in this world,\n you should conscript all the\n young people to fight for our security.\"");
 		issues[4].addOption ("Refuse, that sounds expensive", new int[] {0, 0, -10, 10, 10, 0}, false);
 		issues[4].addOption ("Of Course! More Soldiers!", new int[] {0, 10, 0, 5, -5, 0}, true);
 		issues[4].addOption("Have him beheaded for his insolence", new int[] {10, 5, 0, 5, 0, 0}, true); //stats will need to affect all other villagers
 		
 		issues.Add (new Issue ("Build a School", 3));
-		issues[5].setDescription ("Could you build a school for our children to be educated in?  I think it woulld greatly benefit your realm.");
+		issues[5].setDescription (" \"Could you build a school for\n our children to be educated in?\n  I think it woulld greatly benefit your\n realm.\"");
 		issues[5].addOption ("Sounds good to me", new int[] {0, -10, 10, 0, -15, 5}, true);  //should subtract a large amount of money
 		issues[5].addOption ("We can't afford that", new int[] {0, 10, -15, 0, 10, -5}, false);
 		issues[5].addOption("Have him beheaded for his insolence", new int[] {10, 5, 0, 5, 0, 0}, true); //stats will need to affect all other villagers
