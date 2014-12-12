@@ -54,6 +54,7 @@ public class IssuePresenter : MonoBehaviour {
 		VillagerController curVillager = villagerQueue.getFirstVillager().GetComponent<VillagerController>();
 		HUDS.resetText();
 		HUDS.addLine("Stats");
+		HUDS.addLine("-----------");
 		for(int i=0; i<VillagerStats.statNames.Length; i++) {
 			HUDS.addLine(VillagerStats.statNames[i] + ": " + curVillager.stats[i]);
 		}
