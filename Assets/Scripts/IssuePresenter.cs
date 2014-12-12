@@ -12,7 +12,11 @@ public class IssuePresenter : MonoBehaviour {
 	private HUDController HUDI;
 
 	public VillagerQueue villagerQueue;
+	public VillagerManager villagerManager;
 	public IssueManager issueManager;
+
+	public VillagerController curVillager;
+	public Issue curIssue;
 
 	// Use this for initialization
 	public void Init() {
@@ -49,15 +53,10 @@ public class IssuePresenter : MonoBehaviour {
 
 	public void presentIssue() {
 
-		VillagerController curVillager = villagerQueue.getFirstVillager().GetComponent<VillagerController>();
-		HUDS.resetText();
-		HUDS.addLine("Stats");
-		HUDS.addLine("-----------");
-		for(int i=0; i<VillagerStats.statNames.Length; i++) {
-			HUDS.addLine(VillagerStats.statNames[i] + ": " + curVillager.stats[i]);
-		}
+		curVillager = villagerQueue.getFirstVillager().GetComponent<VillagerController>();
+		updateHUDS();
 
-		Issue curIssue = issueManager.issues[0];
+		curIssue = issueManager.issues[0];
 		HUDI.resetText ();
 		HUDI.addLine("Issue");
 		HUDI.addLine("----------");
@@ -68,5 +67,30 @@ public class IssuePresenter : MonoBehaviour {
 			HUDI.addLine("["+i+"] " + curIssue.options[i].description);
 		}
 
+	}
+
+	public void updateHUDS() {
+		HUDS.resetText();
+		HUDS.addLine("Stats");
+		HUDS.addLine("-----------");
+		for(int i=0; i<VillagerStats.statNames.Length; i++) {
+			HUDS.addLine(VillagerStats.statNames[i] + ": " + curVillager.stats[i]);
+		}
+	}
+
+
+	void Update() {
+		if (Input.GetButtonDown("Option1")) {
+			villagerManager.updateVillagersStats(curIssue.options[0].statsModifier);
+			updateHUDS();
+		}
+		if (Input.GetButtonDown("Option2")) {
+			villagerManager.updateVillagersStats(curIssue.options[1].statsModifier);
+			updateHUDS();
+		}
+		if (Input.GetButtonDown("Option3")) {
+			villagerManager.updateVillagersStats(curIssue.options[2].statsModifier);
+			updateHUDS();
+		}
 	}
 }
