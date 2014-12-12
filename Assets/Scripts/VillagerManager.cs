@@ -10,19 +10,15 @@ public class VillagerManager : MonoBehaviour {
 	public GameObject villagerQueue;
 
 	// Use this for initialization
-	void Start () {
+	public void Init () {
 
 		//--Initializations
 
 		//------villagers
 		GameObject[] villagers = GameObject.FindGameObjectsWithTag(Tags.villager);
 		foreach(GameObject villager in villagers){
-			villager.GetComponent<VillagerController>().ManualStart();
+			villager.GetComponent<VillagerController>().Init();
 		}
-		//------VillagerQueue
-		villagerQueue.GetComponent<VillagerQueue>().ManualStart();
-
-		//--
 
 
 		//--get all villagers

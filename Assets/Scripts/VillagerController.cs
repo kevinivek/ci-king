@@ -11,7 +11,7 @@ public class VillagerController : MonoBehaviour {
 
 	}
 
-	public void ManualStart(){
+	public void Init(){
 		for (int i = 0; i < stats.Length; i++) {
 			stats[i] = Random.Range(40,60);
 		}

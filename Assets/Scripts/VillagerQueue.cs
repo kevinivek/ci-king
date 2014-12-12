@@ -8,7 +8,7 @@ public class VillagerQueue : MonoBehaviour {
 	public List<GameObject> villagerInQueue = new List<GameObject>();
 
 	// Use this for initialization
-	public void ManualStart () {
+	public void Init() {
 		GameObject[] tempMarkers = GameObject.FindGameObjectsWithTag(Tags.villagerMarker);
 		int numMarker = tempMarkers.Length;
 		markers = new GameObject[numMarker];
@@ -18,8 +18,6 @@ public class VillagerQueue : MonoBehaviour {
 		}
 
 	}
-
-
 
 	public void pushVillager(GameObject villager) {
 		villagerInQueue.Add(villager);
