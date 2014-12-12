@@ -4,9 +4,18 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public GameObject villager;
+	public GameObject VillagerHUDPrefab;
+	private GameObject villagerHUD;
+	
+	private int coffers;
+	private int food;
 
 	// Use this for initialization
 	void Start () {
+		villagerHUD = Instantiate (VillagerHUDPrefab) as GameObject;
+		villagerHUD.gameObject.GetComponent<HUDController> ().villager = villager;
+		coffers = 200;
+		good = 200;
 	}
 	
 	// Update is called once per frame
@@ -43,5 +52,21 @@ public class PlayerController : MonoBehaviour {
 			VillagerController villCont = hit.gameObject.GetComponent<VillagerController>();
 			villCont.stats[ VillagerStats.HUNGER ] += 10;
 		}
+	}
+	
+	public void addCoffers(int gold){
+		this.coffers += gold;
+	}
+	
+	public void addFood(int food){
+		this.food +=food;
+	}
+	
+	public int getCoffers(){
+		return this.coffers;
+	}
+	
+	public int getFood(){
+		return this.food;
 	}
 }
