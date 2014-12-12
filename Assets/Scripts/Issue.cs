@@ -14,9 +14,20 @@ public class Issue{
 		this.title = title;
 		options = new IssueOption[num];
 	}
+	
+	//Formats the description to have a return after every 35 characters
+	public void setDescription(string original){
+		string newDescription = "";
+		int startPos = 0;
+		int line = 35;
+		int origLength = original.Length;
+		while(origLength > line){
+			newDescription += (original.substring(startPos * line, (startPos + 1) * line)) + " /n ";
+			origLength -= line;
+		}
+		
+		this.description = newDescription;
 
-	public void setDescription(string description){
-		this.description = description;
 	}
 
 	public void addOption(string oName, int[] stats, bool all){
