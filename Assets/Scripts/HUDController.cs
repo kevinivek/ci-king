@@ -37,4 +37,14 @@ public class HUDController : MonoBehaviour {
 		activeHUD = false;
 		this.transform.position = storePosition;
 	}
+
+	public void resize(Vector3 modScale) {
+		Vector3 scale = transform.localScale;
+		Vector3 newScale = new Vector3( scale.x*modScale.x, scale.y*modScale.y, scale.z*modScale.z );
+		transform.localScale = newScale;
+
+		scale = text.transform.localScale;
+		newScale = new Vector3( scale.x*modScale.x, scale.y*modScale.y, scale.z*modScale.z );
+		text.transform.localScale = newScale;
+	}
 }
