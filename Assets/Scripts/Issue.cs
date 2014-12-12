@@ -17,16 +17,16 @@ public class Issue{
 	
 	//Formats the description to have a return after every 35 characters
 	public void setDescription(string original){
-		string newDescription = "";
-		int startPos = 0;
-		int line = 35;
-		int origLength = original.Length;
-		while(origLength > line){
-			newDescription += (original.substring(startPos * line, (startPos + 1) * line)) + " /n ";
-			origLength -= line;
-		}
-		
-		this.description = newDescription;
+//		string newDescription = "";
+//		int startPos = 0;
+//		int line = 35;
+//		int origLength = original.Length;
+//		while(origLength > line){
+//			newDescription += (original.Substring(startPos * line, (startPos + 1) * line)) + " \n ";
+//			origLength -= line;
+//		}
+//		
+		this.description = original;
 
 	}
 
