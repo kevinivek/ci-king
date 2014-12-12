@@ -7,11 +7,13 @@ public class IssueOption{
 
 	private int choice = -1; 		//choice number for given issue
 	private string description = "";	//description of choice
+	private bool all;
 	
-	public IssueOption(string description, int choice, int[] stats){
+	public IssueOption(string description, int choice, int[] stats, bool all){
 		this.choice = choice;
 		this.description = description;
 		statsModifier = stats;
+		this.all = all;
 	}	
 	
 	public string getDescription(){
@@ -20,6 +22,10 @@ public class IssueOption{
 	
 	public int getChoice(){
 		return choice;
+	}
+	
+	public bool getAll(){
+		return this.all;
 	}
 	
 	public int[] getStats(){
