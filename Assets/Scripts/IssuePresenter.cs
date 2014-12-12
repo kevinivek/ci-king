@@ -33,11 +33,20 @@ public class IssuePresenter : MonoBehaviour {
 		Vector3 HUDSB = HUDS.renderer.bounds.size;
 		Vector3 VillB = villagerQueue.villagerInQueue[0].renderer.bounds.size;
 		Vector3 newPos = new Vector3(markerPos.x - (HUDSB.x/2+VillB.x/2), HUDSB.y/2 + markerPos.y, HUDSB.z/2 + markerPos.z);
-		HUDS.setPosition(newPos);
+		Vector3 offset = new Vector3(0.0f, 0.0f, 0.0f);
+		HUDS.setPosition(newPos + offset);
 
 		Vector3 HUDIB = HUDI.renderer.bounds.size;
 		newPos = new Vector3(markerPos.x + (HUDIB.x/2+VillB.x/2), HUDIB.y/2 + markerPos.y, HUDIB.z/2 + markerPos.z);
-		HUDI.setPosition(newPos);
+		offset = new Vector3(0.0f, 0.0f, 0.0f);
+		HUDI.setPosition(newPos + offset);
+
+		VillagerController curVillager = villagerQueue.getFirstVillager().GetComponent<VillagerController>();
+		HUDS.resetText();
+		HUDS.addLine("Stats");
+		for(int i=0; i<VillagerStats.statNames.Length; i++) {
+			HUDS.addLine(VillagerStats.statNames[i] + ": " + curVillager.stats[i]);
+		}
 
 
 	}
