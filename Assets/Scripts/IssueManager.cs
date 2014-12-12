@@ -7,7 +7,7 @@ public class IssueManager : MonoBehaviour {
 	private List<Issue> issues = new List<Issue>();
 
 	// Use this for initialization
-	void Start () {
+	public void Init () {
 		issues.Add(new Issue ("Farm Disaster", 3));
 		issues[0].setDescription("Half my farm burned down in a fire, I'm not going to be able to make any money this season, let alone feed my family.");
 		issues[0].addOption("Give him some grain", new int[] {0, -10, 10, 0, 0, -10}, false); //subtract from food stores

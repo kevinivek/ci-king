@@ -3,17 +3,19 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
-	public GameObject villagerManager;
-	public GameObject villagerQueue;
-	public GameObject issuePresenter;
+	public VillagerManager villagerManager;
+	public VillagerQueue villagerQueue;
+	public IssueManager issueManager;
+	public IssuePresenter issuePresenter;
 
 	// Use this for initialization
 	void Start () {
-		villagerQueue.GetComponent<VillagerQueue>().Init();
-		villagerManager.GetComponent<VillagerManager>().Init();
-		issuePresenter.GetComponent<IssuePresenter>().Init();
+		villagerQueue.Init();
+		villagerManager.Init();
+		issueManager.Init();
+		issuePresenter.Init();
 
-		issuePresenter.GetComponent<IssuePresenter> ().presentIssue ();
+		issuePresenter.presentIssue();
 	}
 	
 	// Update is called once per frame

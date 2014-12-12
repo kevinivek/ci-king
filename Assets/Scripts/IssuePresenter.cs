@@ -43,10 +43,7 @@ public class IssuePresenter : MonoBehaviour {
 		newPos = new Vector3(markerPos.x + (HUDIB.x/2+VillB.x/2), HUDIB.y/2 + markerPos.y, HUDIB.z/2 + markerPos.z);
 		offset = new Vector3(0.0f, 0.0f, 0.0f);
 		HUDI.setPosition(newPos + offset);
-
-
-
-
+		
 	}
 
 	public void presentIssue() {
@@ -58,6 +55,10 @@ public class IssuePresenter : MonoBehaviour {
 		for(int i=0; i<VillagerStats.statNames.Length; i++) {
 			HUDS.addLine(VillagerStats.statNames[i] + ": " + curVillager.stats[i]);
 		}
+		
+		HUDI.resetText ();
+		HUDI.addLine("Issue");
+		HUDI.addLine("----------");
 
 
 	}
