@@ -27,8 +27,8 @@ public class IssuePresenter : MonoBehaviour {
 		HUDI = HUDIssue.GetComponent<HUDController> ();
 		HUDI.Init();
 		HUDI.setPosition(new Vector3(0, 4, -1.5f));
-		HUDS.HUDtext.fontSize = 24;
-		HUDS.HUDtext.characterSize = 0.5f;
+		HUDI.HUDtext.fontSize = 24;
+		HUDI.HUDtext.characterSize = 0.5f;
 		HUDI.resize(new Vector3 (1, 0.5f, 1));
 		
 		Vector3 markerPos = villagerQueue.markers[0].transform.position;
