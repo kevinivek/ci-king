@@ -11,7 +11,8 @@ public class IssuePresenter : MonoBehaviour {
 	private HUDController HUDS;
 	private HUDController HUDI;
 
-	public VillagerQueue villagerQueue; 
+	public VillagerQueue villagerQueue;
+	public IssueManager issueManager;
 
 	// Use this for initialization
 	public void Init() {
@@ -55,7 +56,8 @@ public class IssuePresenter : MonoBehaviour {
 		for(int i=0; i<VillagerStats.statNames.Length; i++) {
 			HUDS.addLine(VillagerStats.statNames[i] + ": " + curVillager.stats[i]);
 		}
-		
+
+
 		HUDI.resetText ();
 		HUDI.addLine("Issue");
 		HUDI.addLine("----------");
