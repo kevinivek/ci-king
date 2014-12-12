@@ -20,8 +20,11 @@ public class HUDController : MonoBehaviour {
 		HUDtext.text = newText;
 	}
 
+	public void resetText() {
+		HUDtext.text = "";
+	}
 	public void addLine(string line) {
-		HUDtext.text += line;
+		HUDtext.text += line + "\n";
 	}
 
 	public void setPosition(Vector3 newPos) {
