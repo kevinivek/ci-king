@@ -54,9 +54,7 @@ public class VillagerManager : MonoBehaviour {
 
 	public void updateVillagersStats(int[] stats) {
 		foreach(GameObject villager in villagerList) {
-			for(int i = 0; i < villageStats.Length; i++){
-				villager.GetComponent<VillagerController>().stats[i] += stats[i];
-			}
+			villager.GetComponent<VillagerController>().updateStats(stats);
 		}
 	}
 	

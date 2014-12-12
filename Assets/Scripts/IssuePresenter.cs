@@ -81,15 +81,24 @@ public class IssuePresenter : MonoBehaviour {
 
 	void Update() {
 		if (Input.GetButtonDown("Option1")) {
-			villagerManager.updateVillagersStats(curIssue.options[0].statsModifier);
+			if (curIssue.options[0].all)
+				villagerManager.updateVillagersStats(curIssue.options[0].statsModifier);
+			else
+				curVillager.updateStats(curIssue.options[0].statsModifier);
 			updateHUDS();
 		}
 		if (Input.GetButtonDown("Option2")) {
-			villagerManager.updateVillagersStats(curIssue.options[1].statsModifier);
+			if (curIssue.options[1].all)
+				villagerManager.updateVillagersStats(curIssue.options[1].statsModifier);
+			else
+				curVillager.updateStats(curIssue.options[1].statsModifier);
 			updateHUDS();
 		}
 		if (Input.GetButtonDown("Option3")) {
-			villagerManager.updateVillagersStats(curIssue.options[2].statsModifier);
+			if (curIssue.options[2].all)
+				villagerManager.updateVillagersStats(curIssue.options[2].statsModifier);
+			else
+				curVillager.updateStats(curIssue.options[2].statsModifier);
 			updateHUDS();
 		}
 	}
