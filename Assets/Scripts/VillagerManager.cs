@@ -61,11 +61,13 @@ public class VillagerManager : MonoBehaviour {
 	public void removeVillager(GameObject villager) {
 		villagerList.Remove(villager);
 		villagerQueue.villagerInQueue.Remove(villager);
+		villagerQueue.updateQueue();
 	}
 
 	public void removeFirstVillager() {
 		villagerList.RemoveAt(0);
 		villagerQueue.villagerInQueue.RemoveAt(0);
+		villagerQueue.updateQueue();
 	}
 
 	// Update is called once per frame

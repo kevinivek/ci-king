@@ -29,7 +29,7 @@ public class VillagerQueue : MonoBehaviour {
 		updateQueue();
 	}
 
-	private void updateQueue() {
+	public void updateQueue() {
 		for(int i=0; i<villagerInQueue.Count; i++) {
 			moveVillagerToMarker(villagerInQueue[i], markers[i]);
 		}
