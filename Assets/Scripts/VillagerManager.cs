@@ -65,8 +65,10 @@ public class VillagerManager : MonoBehaviour {
 	}
 
 	public void removeFirstVillager() {
+		GameObject villager = villagerList[0];
 		villagerList.RemoveAt(0);
 		villagerQueue.villagerInQueue.RemoveAt(0);
+		GameObject.Destroy(villager);
 		villagerQueue.updateQueue();
 	}
 

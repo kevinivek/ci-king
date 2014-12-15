@@ -20,6 +20,7 @@ public class IssuePresenter : MonoBehaviour {
 	public Issue curIssue;
 
 	public bool presentingIssue = true;
+	public bool killedVillager = false;
 
 	// Use this for initialization
 	public void Init() {
@@ -57,6 +58,7 @@ public class IssuePresenter : MonoBehaviour {
 	public void presentIssue(Issue issue) {
 
 		presentingIssue = true;
+		killedVillager = false;
 
 		curIssue = issue;
 		curVillager = villagerQueue.getFirstVillager().GetComponent<VillagerController>();
@@ -100,13 +102,14 @@ public class IssuePresenter : MonoBehaviour {
 			presentingIssue = false;
 		}
 		if (Input.GetButtonDown("Option3")) {
-			if (curIssue.options[2].all)
+			if (curIssue.options[2].all) {
 				villagerManager.updateVillagersStats(curIssue.options[2].statsModifier);
-			else {
+				villagerManager.removeFirstVillager();
+				killedVillager = true;
+				//GameObject headRoll = Instantiate (HeadRollerPrefab) as GameObject;
+				//headRoll.transform.position = villagerQueue.markers[0].transform.position;
+			} else {
 				curVillager.updateStats(curIssue.options[2].statsModifier);
-				//villagerManager.removeVillager(curVillager.gameObject);
-				GameObject headRoll = Instantiate (HeadRollerPrefab) as GameObject;
-				headRoll.transform.position = villagerQueue.markers[0].transform.position;
 			}
 			updateHUDS();
 			presentingIssue = false;

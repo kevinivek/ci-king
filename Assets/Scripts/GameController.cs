@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		if (Input.GetButtonDown("Fire1")) {
 			villagerManager.removeFirstVillager();
+			issuePresenter.updateHUDS();
 		}
 
 		switch (state) {
@@ -39,7 +40,9 @@ public class GameController : MonoBehaviour {
 				state = PRESENTING_ISSUE;
 				break;
 			case PRESENTING_ISSUE:
-				if(!issuePresenter.presentingIssue)
+				if(issuePresenter.killedVillager)
+					state = PRESENT_ISSUE;
+				else if(!issuePresenter.presentingIssue)
 					state = NEXT_VILLAGER;
 				break;
 			case NEXT_VILLAGER:
